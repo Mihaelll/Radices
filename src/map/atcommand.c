@@ -6662,7 +6662,17 @@ ACMD_FUNC (autotrade)
 	clif_authfail_fd (fd, 15);
 	return 0;
 }
-
+/*==========================================
+ * @sentar por Zell versão 1.0
+ * Faz com que o jogador sente ou fazer algum jogador sentar.
+ *------------------------------------------*/
+ACMD_DEF(sentar),
+{
+int atcommand_sentar(const int fd, struct map_session_data* sd, const char* command, const char* message)
+{
+	sc_start(&sd->bl, SC_TENSIONRELAX, 100, 1, 1000);
+return 0;
+}
 /*==========================================
  * @changegm by durf (changed by Lupus)
  * Changes Master of your Guild to a specified guild member
