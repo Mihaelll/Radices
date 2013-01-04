@@ -9749,6 +9749,7 @@ AtCommandInfo atcommand_info[] =
 	{ "showzeny",          10, 10,     atcommand_showzeny},
 	{ "showdelay",          1, 1,      atcommand_showdelay},
 	{ "autotrade",         10, 10,     atcommand_autotrade },
+	{ "sentar",         10, 10,     atcommand_sentar },
 	{ "at",                10, 10,     atcommand_autotrade },
 	{ "changegm",          10, 10,     atcommand_changegm },
 	{ "changeleader",      10, 10,     atcommand_changeleader },
