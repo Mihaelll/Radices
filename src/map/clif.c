@@ -266,32 +266,48 @@ uint16 clif_getport (void)
 {
 	return map_port;
 }
-
 #if PACKETVER >= 20071106
-static inline unsigned char clif_bl_type (struct block_list *bl)
-{
-	switch (bl->type)
+-static inline unsigned char clif_bl_type(struct block_list *bl) {
+	switch (bl->type) {
+	case BL_PC:	return disguised(bl)?0x1:0x0; //PC_TYPE
+	case BL_ITEM:	return 0x2; //ITEM_TYPE
+	case BL_SKILL:	return 0x3; //SKILL_TYPE
+	case BL_CHAT:	return 0x4; //UNKNOWN_TYPE
+	case BL_MOB:	return pcdb_checkid(status_get_viewdata(bl)->class_)?0x0:0x5; //NPC_MOB_TYPE
+	case BL_NPC:	return 0x6; //NPC_EVT_TYPE
+	case BL_PET:	return pcdb_checkid(status_get_viewdata(bl)->class_)?0x0:0x7; //NPC_PET_TYPE
+	case BL_HOM:	return 0x8; //NPC_HOM_TYPE
+	case BL_MER:	return 0x9; //NPC_MERSOL_TYPE
+	case BL_ELEM:	return 0xa; //NPC_ELEMENTAL_TYPE
+	default:	return 0x1; //NPC_TYPE
+	}
+}
+static inline unsigned char clif_bl_type(struct block_list *bl) {
+
+	// Lecture de la class
+	int class_ = status_get_viewdata(bl)->class_;
+	int type = bl->type;
+
+	if( type == BL_NPC || type == BL_MOB || type == BL_PC )
 	{
-		case BL_PC:    return disguised (bl) ? 0x1 : 0x0; //PC_TYPE
-
-		case BL_ITEM:  return 0x2; //ITEM_TYPE
-
-		case BL_SKILL: return 0x3; //SKILL_TYPE
-
-		case BL_CHAT:  return 0x4; //UNKNOWN_TYPE
-
-		case BL_MOB:   return pcdb_checkid (status_get_viewdata (bl)->class_) ? 0x0 : 0x5; //NPC_MOB_TYPE
-
-		case BL_NPC:   return 0x6; //NPC_EVT_TYPE
-
-		case BL_PET:   return pcdb_checkid (status_get_viewdata (bl)->class_) ? 0x0 : 0x7; //NPC_PET_TYPE
-
-		case BL_HOM:   return 0x8; //NPC_HOM_TYPE
-
-		case BL_MER:   return 0x9; //NPC_MERSOL_TYPE
-
-			// case BL_ELEM:  return 0xA; //NPC_ELEMENTAL_TYPE
-		default:       return 0x1; //NPC_TYPE
+		if ( class_ < 45 ) type = BL_PC;
+		else if ( class_ < 1000 ) type = BL_NPC;
+		else if ( class_ < 4000 ) type = BL_MOB;
+		else type = BL_PC;
+	}
+		switch( type )
+		{
+		case BL_PC:	return 0x0; //PC_TYPE
+		case BL_ITEM:	return 0x2; //ITEM_TYPE
+		case BL_SKILL:	return 0x3; //SKILL_TYPE
+		case BL_CHAT:	return 0x4; //UNKNOWN_TYPE
+		case BL_MOB:	return 0x5; //NPC_MOB_TYPE
+		case BL_NPC:	return 0x6; //NPC_EVT_TYPE
+		case BL_PET:	return 0x7; //NPC_PET_TYPE
+		case BL_HOM:	return 0x8; //NPC_HOM_TYPE
+		case BL_MER:	return 0x9; //NPC_MERSOL_TYPE
+// case BL_ELEM:	return 0xA; //NPC_ELEMENTAL_TYPE
+		default:	return 0x1; //NPC_TYPE
 	}
 }
 #endif
