@@ -1,0 +1,1400 @@
+//===== Cronus Documentação ================================
+//= Lista de Atcommands
+//===== Por: ==================================================
+//=      ¦¦¦            
+//=   ¦¦¦¦¦¦¦¦         
+//=  ¦¦¦    ¦¦¦        
+//=          ¦¦        
+//=           ¦¦¦¦¦¦¦  
+//=           ¦¦¦¦  ¦¦ 
+//=           ¦¦¦    ¦ 
+//=           ¦¦¦¦¦¦¦¦¦
+//=           ¦¦¦¦¦¦¦¦ 
+//=          ¦¦¦¦      
+//=  ¦¦¦    ¦¦ ¦¦¦ ¦¦¦ 
+//=   ¦¦¦¦¦¦¦   ¦¦¦¦¦
+//=     ¦¦¦¦
+//===== Versão: =====================================
+//= Radices
+//===== Description: =========================================
+//= Lista de Comandos disponíveis do Atcommands.
+//=
+//= Criado por Zell
+//=
+//= Log 1.0 - Criado DOC de Atcommands do Radice.
+//============================================================
+
+Este arquivo descreve a utilização em jogo de comandos e assume isto:
+'conf/atcommand_athena.conf' com os seguintes simbolos:
+	atcommand_symbol : "@"
+	charcommand_symbol: "#"
+
+Para achar um comando, escreva "@" antes de utilizar o nome do comando
+
+Ex: @comandos
+
+Índice:
+
+	1. Comandos de Sistema
+	2. Comandos da DB
+	3. Comandos de Informação de Jogador
+	4. Comandos de Ação
+	5. Comandos Administrativos
+	6. Comandos de Grupo
+	7. Comandos de Clã
+	8. Comandos de Mascote
+	9. Comandos de Homunculo
+
+==========================
+| 1. Comandos de Sistema |
+==========================
+
+@versão
+
+Mostra a versão atual do servidor
+
+====================
+
+@rates
+
+Mostra a Taxa do Servidor, sejam elas Experiência, Drops e derivados.
+
+Exemplo de visualização:
+Taxa de Experiência: Base 1.00x / Job 1.00x
+Taxa de Drop Normal: Common 1.00x / Healing 1.00x / Usable 1.00x Equipment 1.00x / Card 1.00x
+Taxa de Exp Boss:  Common 1.00x / Healing 1.00x / Usable 1.00x Equipment 1.00x / Card 1.00x
+Taxa de Drops derivados: MvP 1.00x / Card-Based 1.00x / Treasure 1.00x
+
+====================
+
+@Tempo
+
+Mostra a Hora local do servidor com dia e noite também.
+ 
+====================
+
+@upTempo
+
+Mostra a quanto tempo o servidor está ligado desde seu último reload.
+
+
+Exemplo de visualização:
+
+Server UpTempo: 3 days, 8 hours, 6 minutes, 4 seconds.
+
+====================
+
+@refresh
+
+Re-sincroniza posição do jogador com o Cliente.
+
+====================
+
+@showexp
+
+Mostra a Taxa de Expêriencia ganha.
+
+====================
+
+@showzeny
+
+Mostra a Taxa de Dinheiro ganha.
+
+Configurações de dinheiro dropado pelos montros estão em '/conf/battle/monster.conf':
+zeny_from_mobs: yes
+
+====================
+
+@showdelay
+
+Mostra a menssagem de delay "Não pode usar a habilidade"
+
+Exemplo de visualização:
+[Chuva de Meteoro] Não pode usar a habilidade
+
+====================
+
+@noask
+
+Rejeita automáticamente convites e negociações
+
+====================
+
+@noks
+
+Proteje contra KS.
+
+Ou seja, ao ativar, caso você esteja batendo em algum monstro, outro jogador não poderá bater.
+
+====================
+
+@fonte <0-9>
+
+Muda a fonte do cliente, 0 é a padrão.
+
+====================
+
+@woeon
+
+Iniciar a GDE executando scripts que terminem com Labels de OnAgitStart
+
+@woeoff
+
+Termina a GDE executando scripts que terminem com Labels de OnAgitEnd2
+
+====================
+
+@woeon2
+
+Iniciar a GDE2 executando scripts que terminem com Labels de OnAgitStart2
+
+@woeoff2
+
+Termina a GDE executando scripts que terminem com Labels de OnAgitEnd2
+
+====================
+
+@pvpon
+@pvpoff
+
+Ativa ou Desliga o PvP no Mapa.
+
+PvP = Player vs Player = Jogador contra Jogador
+
+====================
+
+@gvgon
+@gvgoff
+
+Ativa ou Desliga o GvG no Mapa.
+
+GvG = Guild vs Guild = Clã VS Clã
+====================
+
+@skillon
+@skilloff
+
+Ativa ou Desativa o uso de habilidades no Mapa.
+
+====================
+
+@allowks
+
+Ativa o KS no Mapa.
+
+KS é o roubo de Mob.
+
+====================
+
+@dia
+@noite
+
+Muda o mapa para dia e noite com seus devidos efeitos de sombras.
+
+====================
+
+@som <arquivo>
+
+Toca um som específico que deve estar na pasta data/wav/SEUSOM.wav
+
+O som deve estar em Mono.
+
+Embora tenha soms do cliente em stereo não é recomendável por erros de gravity.
+
+====================
+
+@neve
+@nuvems
+@nuvems2
+@nevoeiro
+@fogos
+@sakura
+@folhas
+
+Adiciona efeitos no mapa:
+
+Neve = Flocos de Neve caiem na tela.
+Nuvems = Aparece Nuvems simulando efeito de Serra.
+Nevoeiro = Cria um nevoeiro denso vermelho.
+Fireworks = Fogos de Artificio
+Sakura = Folhas sakura caiem na tela.
+Levaes = Folhas caiem na tela.
+====================
+
+@limparclima
+
+Para todos os efeitos de clima do mapa. Irá requerir que o jogador recarregue o mapa novamente ou utilizar @refresh
+para que o efeito pare.
+
+====================
+
+@mapflag <flag> <valores 0-1>
+
+Adiciona um Mapflag no mapa que o jogador utilizar este comando. (1 = Ligado, 0 = Desligar).
+
+====================
+
+@portal <mapa> <x> <y>
+
+Cria um Portal nas coordenadas <x> e <y> até o servidor reiniciar.
+O nome do novo portal será visualizado apenas uma vez no Chat.
+
+Exemplo:
+@portal prontera 50 50
+
+Fala do Comando no Chat:
+Novo Portal NPC 'warp_4_170_198' criado.
+
+====================
+
+@efeito <ID do Efeito>
+
+Cria um efeito visual ao redor do jogador
+Uma lista dos IDs pode ser achada em '/db/const.txt'.
+Descrições do efeito estão em '/doc/effect_list.txt'.
+
+====================
+
+@sefeito <skill ID> {<skill level>}
+
+Mostra uma animação de skill sem utilizar a mesma. (Função Debug)
+
+====================
+
+@vefeito {<param 1> {<param 2> {<param 3>}}}
+
+Adiciona um efeito visual para o jogador que utilizar este comando.
+
+Se nenhum paramêtro for especificado, uma lista de efeitos disponíveis será mostrado.
+
+====================
+
+@displaystatus <status type> <flag> <tick> {<val1> {<val2> {<val3>}}}
+
+Mostra um valor de atributos sem realmente aplica-los (Função Debug).
+
+====================
+
+@packet <Hex Number> {<value>}
+
+Usado apra testar o envio de packets para o cliente (Função Debug).
+
+Valores: <type=B(default),W,L><number> ou S<length>"<Frase>"
+
+====================
+
+@mapinfo
+
+Mostra informações sobre o mapa atual.
+
+Exemplo de visualização:
+
+------ Informações do Mapa ------
+Nome: prontera | Jogadores no Mapa: 1 | NPCs no Mapa: 127 | Chats no Mapa: 0
+------ Map Flags ------
+Town Map
+Autotrade Enabled
+PvP Flags: 
+GvG Flags: 
+Teleport Flags: 
+No Exp Penalty: On | No Zeny Penalty: On
+Weather Flags: Displays Night | 
+Other Flags: NoBranch | Reset | 
+Other Flags: 
+
+====================
+
+@gat
+
+Da informações sobre o terreno/área (Função Debug)
+
+Exemplo de Visualização:
+
+prontera (x= 165, y= 202) 00 00 00 00 00
+prontera (x= 165, y= 201) 01 00 00 00 00
+prontera (x= 165, y= 200) 01 00 00 00 00
+prontera (x= 165, y= 199) 01 00 00 00 00
+prontera (x= 165, y= 198) 01 00 00 00 00
+
+====================
+
+========================
+| 2. Comandos da DB |
+========================
+
+@infomonstro <Nome do monstro ou ID>
+
+Mostra informações sobre o Monstro (Rates, Atributos, Drops, MVP).
+
+Exemplo:
+
+@infomonstro Poring
+
+Exemplo de Visualização:
+
+Monstro: 'Poring'/'Poring'/'PORING' (1002)
+Lv: 1 HP:60 Base EXP:27 Job EXP:20 HIT:103 FLEE:183
+DEF:2 MDEF:5 FOR:6 AGI:1 VIT:1 INT:1 DEX:6 SOR:5
+ATK:8~9 Range:1~10~12 Tamanho:Medium Raça:Plant Element:Water (Lv:1)
+Drops:
+ - Jellopy 70.00% - Knife[4] 1.00% etc...
+ 
+====================
+
+@iteminfo <Nome do item ou ID>
+
+Mostra informações do item (tipo, preço, peso, drops).
+
+Examplo:
+@iteminfo Jellopy
+
+Exemplo de visualização:
+
+Item: 'Jellopy'/'Jellopy'[0] (909) Type: Etc. | Extra Effect: None
+NPC compra por:6z, Sell:3z | Weight: 1.0
+- Maximal monsters drop change: 75.00%
+
+====================
+
+@quemdropa <Nome do item ou ID>
+
+Mostra uma lista de monstros que dropam o item.
+Apenas os monstros com maior drop são mostrados
+
+====================
+
+@autoloot {<%>}
+
+Ativa ou desativa o loot automático de items automáticamentes para o inventário após matar um monstro.
+Se dado uma porcentagem, somente items dropados com esta porcentagem serão pegos.
+
+====================
+
+@alootid <+/- Nome do Item/ID>
+@alootid reset
+
+Inicia ou termina o Loot automático de um item específicado.
+Digitando "reset" irá limpar a lista de items do Loot Automático.
+Por padrão, 10 items podem ser Alootid por vez
+
+====================
+
+@monstrogat <Nome do Monstro>
+
+Mostra as coordenadas de certo monstro no mapa atual.
+
+Exemplo de Visualização:
+1[155:184] Poring
+2[154:188] Poring
+3[127:146] Poring
+
+====================
+
+@iditem <Nome do Item>
+
+Procura um item por nome (ou parte dele).
+
+====================
+
+@rastrearmonstro <Nome do monstro/ID>
+
+Localiza e Mostra a pocição do monstro no Mini-Mapa.
+Ira aparecer em uma pequena cruz branca (+)
+
+====================
+
+@surgimento
+
+Mostra o mapa em que o monstro normalmente nasce.
+Isto não inclui monstros invocados por scripts.
+
+====================
+
+@skillid <Nome da Skill>
+
+Procura a ID de uma habilidade por nome (ou parte do nome).
+
+====================
+
+@skilltree <skill ID> <target>
+
+Lista requirementos para obter a skill.
+
+====================
+
+@questskill {<skill ID>}
+@lostskill {<skill ID>}
+
+Adiciona permantemente ou remove a Skill de Quest.
+Se nenhuma ID for especificada, uma lista de Skills disponíveis será mostrada.
+
+====================
+
+@useskill <skill ID> <skill level> <target>
+
+Casts the specified skill.
+
+Example:
+@useskill 28 5 Char2
+-> casts Level 5 Heal on player Char2
+
+====================
+
+==================================
+| 3. Comandos de Informações do Jogador |
+==================================
+
+@comandos
+
+Mostra uma lista de @ comandos disponíveis para o jogador.
+
+====================
+
+@charcomandos
+
+Mostra uma listas de # comandos disponíveis para o Jogador.
+
+====================
+
+@ajuda <comando>
+
+Mostra uma menssagem de ajuda para o comando.
+
+====================
+
+@exp
+
+Mostra o level atual e % de progresso.
+
+Exemplo de Visualização:
+Base Level: 13 (3.323%) | Job Level: 10 (0.000%)
+
+====================
+
+@stats
+
+Mostra o atributos de um jogador em seu Chat.
+
+====================
+
+@listararmazén <Nome do Jogador>
+
+Mostra o Armazén de um jogador específicado.
+
+====================
+
+@cartlist <Nome do Jogador>
+
+Mostra o que o jogador específicado possuí em seu Carrinho.
+
+====================
+
+@itemlist
+
+Mostra o inventário do jogador específicado.
+
+====================
+
+@who
+@who2
+@who3
+
+Retorna uma lista de jogadores Online.
+@who Posições de personagem
+@who2 Classes
+@who3 Grupos e Clãs
+
+====================
+
+@whomap
+@whomap2
+@whomap3
+
+Retorna uma lista de jogadores online no mapa.
+@whomap Posições de personagem
+@whomap2 Classes
+@whomap3 Grupos e Clãs
+
+====================
+
+@whogm
+
+Retorna uma lista de GM's Online.
+
+Para estes que tiverem level de GM maior que o outro, apenas o nome é mostrado.
+
+====================
+
+@users
+
+Mostra uma porcentagem de jogadores por mapa.
+
+Exemplo de Visualização:
+prontera: 1 (50%)
+prt_fild01: 1 (50%)
+all: 2
+
+====================
+
+@onde <Nome do Jogador>
+
+Localiza um jogador no mapa. O jogador deve estar Online para o comando funcionar.
+
+====================
+
+@tempopreso
+
+Mostra quando tempo o jogador está e ficará preso.
+
+se @prender for usado, será mostrado "Você recebeu pena de prisão perpétua !".
+
+====================
+
+======================
+| 4. Comandos de Ação |
+======================
+
+@ação <Ação>
+
+Este tipo de comando é muito popular no Japão, ele simboliza uma ação ou senTemponto sendo feita pelo jogador no momento.
+
+Ele irá mostrar uma menssagem desta forma "*name <menssagem>*".
+
+Exemplo de Visualização:
+
+*Zell corre*
+
+====================
+
+@main {<Menssagem>}
+
+Envia uma menssagem para todos os jogadores com @main ativo.
+
+Usandoe ste comando sem uma menssagem irá ativar ou desativar o chat principal.
+
+====================
+
+@armazén
+
+Abre o armazén da Kafra.
+ 
+====================
+
+@sms
+
+Abre a caixa de emails do jogados
+
+====================
+
+@leilão
+
+Abre a tela de leilão.
+
+====================
+
+@identificar
+
+Abre a tela de identificação se nenhum item avaliado estiver em seu inventário.
+
+====================
+
+@trocar <Nome do Jogador>
+
+Abre uma tela de negociação com o Jogador específicado.
+
+====================
+
+@lojaauto
+
+Permite que você continue vendendo mesmo offline, então ele te desloga.
+O Personagem continuara vendendo até que a conta seja logada novamente
+Se todos os items forem vendido, ou se o mapserver fechar o Personagem também é removido.
+
+====================
+
+@monstro <Nome do Monstro ou ID> {<quantidade>}
+@monstropequeno <Nome do Monstro ou ID> {<quantidade>}
+@monstergrande <Nome do Monstro ou ID> {<quantidade>}
+
+Invoca o monstro específicado.
+Se uma quantidade é dada, este número de monstros será invocado.
+O tamanho do monstro pode ser ajustado com os comandos de @monstropequeno e @monstrogrande.
+
+====================
+
+@invocar <Nome do Monstro ou ID> {<duração>}
+
+Invoca o monstro que irá tratar o jogador como mestre.
+Se uma duração é específicada, ele irá ficar até que o tempo acabe.
+
+====================
+
+@cópia <Nome do Jogador ou ID>
+@escravo <Nome do Jogador ou ID>
+@clonemal <Nome do Jogador ou ID>
+
+Invoca uma cópia do jogador espécificado
+
+@cópia irá invocar um clone de suporte.
+@escravo irá invocar um clone de suporte que irá seguir o criador.
+@cópiamá irá invocar um clone agressivo.
+
+====================
+
+@item <Nome do Item ou ID> {<quantidade>}
+/item <Nome do Item ou ID>
+@delitem <item name/ID> <quantidade>
+
+Cria ou Remove o item específicado
+Se uma quantidade é dada para o @item, esete número será criado.
+
+====================
+
+@item2 <Nome do Item ou ID> <quantidade> <identify_flag> <refinamento> <attributo> <card1> <card2> <card3> <card4>
+
+Cria um item com os paramêtros dado
+
+identify_flag: 0 = Lupa, 1 = Normal (Se é necessário Lupa ou não)
+attributo: 0 = Não quebrado, 1 = Quebrado
+
+====================
+
+@produzir <Nome do Equipamento ou ID> <elemento> <# of Very's>
+
+Cria uma arma com os paramêtros.
+
+Examplo:
+@produzir 1602 1 2
+Constroi um item chamado "Muito Muito Forte"
+====================
+
+@refinar <Posição do Equipamento> <+/- Quantidade>
+
+Refina um item equipado pela quantidade específicada.
+
+0: Todos os Equipamentos
+1: Cabeça Baixo
+2: Mão Direita
+4: Capa
+8: Acessório Esquerdo
+16: Armadura
+32: Mão Esquerda
+64: Sapatos
+128: Acessório Direito
+256: Cabeça Alto
+512: Cabeça Meio
+
+====================
+
+@consertar
+
+Repara todos os equipamentos quebrados do inventório.
+
+====================
+
+@soltartudo
+
+Joga todos os items do inventório e equipados no chão.
+
+Ídeal se estiver tendo problemas de sprite ao abrir inventário.
+
+====================
+
+@guardartudo
+
+Guarda todos os items do inventório e equipados diretamente no Armazén da Kafra.
+
+====================
+
+@itemreset
+
+Deleta todos os items do Inventário.
+
+Também eficaz para retirar items com erro de sprites. (Não deleta os equipados)
+
+====================
+
+@limparmapa
+
+Deleta items jogados no chão.
+
+====================
+
+@salvar
+
+Salva seu ponto de retorno no mapa e coordenadas atual.
+
+====================
+
+@memo {<0-2>}
+
+Salva um ponto de portal para a Mágia de teletransporte.
+
+Se nenhum número é específicado, o comando vai preencher todos os pontos salvos.
+
+====================
+
+@carregar
+
+Teletransporta para seu Ponto Salvo.
+Não muito útil.
+
+====================
+
+@ir {<Nome da Cidade ou ID>}
+
+Teletransporta para uma cidade específicada.
+Se nenhum valor é dado, uma lista de todos os mapas de cidades será mostrado.
+
+Lugares e coordenadas estão armazenados em '/src/map/atcommand.c'.
+
+====================
+
+@mm <map> {<x> <y>}
+/mm <map> {<x> <y>}
+/mapmove <map> {<x> <y>}
+
+Teletransporta para um ponto específico do Mapa
+Se nenhuma coordenada for dada, irá teletransportar para um ponto aleatório.
+
+====================
+
+@irpara <Nome do Jogador ou ID>
+@seguir <Nome do Jogador ou ID>
+
+Teletransporta para o jogador específicaod.
+@follow Irá seguir o movimento do jogador até ser desligado.
+
+====================
+
+@chamar <Nome do Jogador>
+/recall <Nome do Jogador>
+@evento
+
+Teletransporta um jogador para sua pocição.
+@evento irá invocar todos os jogadores do servidor.
+
+====================
+
+@tonpc <Nome do NPC>
+
+Te leva para o NPC.
+====================
+
+@killer
+
+Permite que você ataque outros jogadores fora do PvP
+
+====================
+
+@killable
+
+Permite que você seja atacado fora do PvP
+
+====================
+
+@blvl <+/- quantidade>
+@jlvl <+/- quantidade>
+
+Troca level Base ou Job pela quantidade específicada.
+
+====================
+
+@for <+/- quantidade>
+@agi <+/- quantidade>
+@vit <+/- quantidade>
+@int <+/- quantidade>
+@dex <+/- quantidade>
+@luk <+/- quantidade>
+
+Troca o Atributo do jogador.
+
+====================
+
+@todosatributos
+
+Coloca todos os atributos no máximo (Padrão é 99(
+
+====================
+
+@todasskills
+
+Dá ao jogador todas as habilidades da árvore de sua classe.
+
+====================
+
+@stpoint <+/- quantidade>
+@skpoint <+/- quantidade>
+
+Adiciona ou remove pontos de atributos e de habilidades.
+
+====================
+
+@streset
+@skreset
+@reset
+
+Reseta Atributos (@streset), Habilidades (@skreset), ou ambos (@reset).
+
+====================
+
+@feelreset
+
+Reseta TKW mapas marcados.
+
+====================
+
+@classe <Nome da Classe ou ID>
+
+Troca sua classe.
+Se nenhuma profissão é dada, uma lista de classes disponíveis será mostrada
+
+Observe que @classe 22,26,27 nao estão disponíveis pelo @job por serem apenas visuais spritezados.
+
+====================
+
+@velocidade <0-1000>
+
+Coloca a velocidade que o jogador se locomove e ataca.
+Padrão é 150 (0 é Super Rápido, 1000 é Super Devagar.
+
+====================
+
+@spiritball <0-100>
+
+Invoca uma quantidade de esferas ao seu redor.
+
+====================
+
+@monstar
+@cashmonstar
+
+Liga Montaria ou Desliga da Classe.
+
+====================
+
+@zeny <+/- quantidade>
+
+Modifica a quantidade de dinheiro pela quantidade específicada
+
+====================
+
+@donate <+/- quantidade>
+
+Adiciona pontos de donate pela quantidade específicada.
+
+Vulgo Cash.
+
+====================
+
+@points <+/- quantidade>
+
+Troca os pontos de Kafra pela quantidade específicada.
+
+====================
+
+@modelo <Estilo do Cabelo> <Cor do Cabelo> <Cor da roupa>
+@penteado <padrão: 0-27>
+@cordocabelo <padrão: 0-8>
+@roupa <default: 0-4>
+
+Troca a aparência baseado nos paramêtros dados.
+
+Máximo e Mínimo valores são dados em '/conf/battle/client.conf'.
+
+====================
+
+@estilo {posição} <view ID>
+
+Modifica a aparência do jogador por um ID de visualização de item.
+
+Se nenhuma posição é dada, o comando modifica por padrão para acessórios na cabeça.
+
+1: Topo
+2: Meio
+3: Baixo
+4: Arma
+5: Escudo
+6: Sapato
+7: Robe
+
+====================
+
+@nomefalso {<Nome>}
+
+Modifica o nome do jogador temporariamente.
+Se nenhum nome for dado, o nome real do personagem será recolocado.
+
+====================
+
+@tamanho <0-2>
+@tamanhonline <0-2>
+
+Modifica seu tamanho (0 = Normal, 1 = Pequeno, 2 = Grande
+
+@tamanhonline irá modificar o tamanho de todos Online no Servidor.
+
+====================
+
+@x1 {<Nome do Jogador>}
+@x2 <Nome do Jogador>
+@lutar
+@fugir
+@sair
+
+x1 irá chamar um jogador para duelo.
+x2 irá adicionar outros jogadores no duelo.
+lutar irá aceitar, fugir irá recusar e sair irá sair do duelo após o termíno do mesmo.
+Algumas opções podem ser achadas em '/conf/battle/misc.conf'.
+
+====================
+
+@curar
+
+Recupera totalmente HP e SP.
+
+====================
+
+@vida
+@mvida
+@svida
+
+@vida Irá ressuscitar o jogador que utilizar.
+@mvida Irá ressuscitar todos os jogadores do Mapa.
+@svida Irá ressuscitar todos os jogadores do Servidor.
+
+====================
+
+@fantasiar <Monstro/Npc/ID>
+@desfantasiar
+@fantasiartodos <Monstro/Npc/ID>
+@desfantasiartodos
+
+Fantasia ou desfantia um jogador com o Sprite do Monstro ou NPC.
+
+====================
+
+@imune1
+
+Faz com que você fique imune a qualquer tipo de ataque.
+
+====================
+
+@invísivel
+/hide
+
+Ativa a invisibilidade perfeito do GM
+
+====================
+
+@npcfalar <Nome do NPC> <menssagem>
+
+Comando para fazer com que o npc fale.
+Um balão de fala irá surgir no NPC.
+
+====================
+
+==============================
+| 5. Comandos Administrativos |
+==============================
+
+@email <current@email.tld> <new@email.tld>
+
+Troca o e-mail da conta.
+Vale ressaltar que o comando só checa se o email possui um @.
+
+====================
+
+@travesti
+
+Troca o Sexo da conta.
+
+====================
+
+@casar <Jogador 1> <Jogador 2>
+@separar <Jogador>
+
+Casa ou Divorcia dois jogadores.
+
+====================
+
+@adotar <Pai> <Mãe> <Criança>
+
+Adota um Aprendiz para a família.
+
+====================
+
+@request <menssagem>
+
+Envia uma menssagem para todos os GMs conectados.
+
+====================
+
+@gmotd
+
+Mostra o Motd de todos os jogadores.
+
+====================
+
+@torpedo <menssagem>
+/b <menssagem>
+/nb <menssagem>
+@mtorpedo <menssagem>
+/lb <menssagem>
+/nlb <menssagem>
+
+Anuncia uma menssagem em um Texto Amarelo.
+
+Exceto para /nb e /nlb, a menssagem irá aparecer com o Nome do Personagem.
+@torpedo será mostrado para todos do Servidor.
+@mtorpedo será mostrado apenas no mapa utilizado.
+
+====================
+
+@tamarelo <menssagem>
+@tazul <menssagem>
+@tcor <cor> <menssagem>
+
+Anuncia uma menssagem sem o prefixo do nome.
+Announces a menssagem without a name prefix.
+@tamarelo Irá mandar um torpedo amarelo.
+@tazul Irá mandar um torpedo azul.
+@tcor Irá mandar um torpedo na cor específicada (Valor hexadecimal).
+
+Examplo:
+@tcor FF0000 Esta menssagem está em vermelho.
+
+====================
+
+@matarmonstro
+@matarmonstro2
+
+Mata todos os montros do mapa.
+@matarmonstro2 não permite que o monstro solte o Drop.
+
+====================
+
+@matar
+@explodir <Nome do Personagem>
+@holocausto
+@2012
+
+Comandos de Chacina.
+
+@matar irá matar o jogador.
+@explodir irá matar um jogador explodindo ele.
+@holocausto Matará apenas jogadores no Mapa.
+@2012 Irá matar todos os jogadores do Mapa.
+
+====================
+
+@castigo <Tempo> <Nome do Personagem>
+@mcastigo <Tempo>
+@descastigar <Nome do Personagem>
+
+Proíbi ou Libera o jogador de poder falar, utilizar habilidades ou comandos.
+
+@mcastigo Irá colocar de castigo todos os jogadores do mapa.
+
+====================
+
+@prender <Nome do Personagem>
+@prenderaté <Tempo> <Nome do Personagem>
+@soltar <Nome do Personagem>
+
+Prende o jogador específicado.
+Se não for dito um tempo o jogador irá receber perpétua.
+
+====================
+
+@deslogar <Nome do Personagem/ID>
+@deslogartodos
+
+Desconecta  um ou todos os jogadores do servidor.
+
+====================
+
+@banir <+/- Tempo> <Nome do Personagem>
+@desbanir <Nome do Personagem>
+
+Bani ou desbani um jogador por um tempo limitado.
+Tempo : anos, mes, dia, hora, minutos, segundos
+
+Example:
+@banir +2d Char2
+-> Bani o jogador por 2 dias.
+
+====================
+
+@bloquear <Nome do Personagem>
+@desbloquear <Nome do Personagem>
+
+Bloqueia jogador de logar indefinidamente.
+
+====================
+
+@fecharservidor
+
+Envia um sinal para o Mapserve, salvando todos os arquivos causando um Desligamento sem problemas de perca de dados.
+Isto também irá fazer os clientes fecharem.
+
+====================
+@recarregardb < Items
+@recarregarmob < Monstro
+@recarregarskill < Habilidades
+@recarregarquest < Quest
+@recarregarnpcs < Npcs < Antigo @reloadscript
+@recarregarcomandos < Atcommands
+@recarrecarbattleconf < Battleconf
+@recarregarstatus < Atributos
+@recarrecarpc < PC
+@recarregarmotd < Menssagems do diaa
+
+====================
+
+@setbattleflag <flag> <valor>
+
+Adiciona um flag sem reiniciar o servidor.
+
+====================
+
+@patente <ID do grupo>
+
+Modifica o grupo do jogador enquanto ele estiver online
+Grupos são modificados em:  '/conf/groups.conf'.
+
+====================
+
+@addperm {<Patente>}
+@rmvperm {<Patente>}
+
+Modifica a permissão do jogador por uma patente dos grupos até ele relogar
+
+====================
+
+@movernpc <x> <y> <nome_npc>
+
+Move NPC para as coordenadas escpecíficadas.
+
+====================
+
+@escondernpc <Nome do NPC>
+@mostrarnpc <Nome do Npc>
+
+Ativa a visibilidade de um Sprite de NPC.
+
+====================
+
+@carregarnpc <path>
+
+Carrega um npc.
+
+Examplo:
+@carregarnpc npc/personalizado/jobmaster.txt
+
+====================
+
+@descarregarnpc <Nome do NPC>
+
+Descarrega um NPC.
+
+Examplo:
+@unloadnpc Job Master
+
+====================
+
+@descarregarnpcem <path>
+
+Unloads all NPCs in a file.
+
+Example:
+@unloadnpcfile npc/custom/jobmaster.txt
+
+====================
+
+========================
+| 6. Comandos de Grupo |
+========================
+
+@Grupo <nome_do_grupo>
+
+Cria um grupo, quem utilizar o comando será o Líder.
+
+====================
+
+@grupoconf <Distribuição de Loot: yes/no> <Distribuição de Item: yes/no>
+
+Modifica configurações do grupo.
+
+====================
+
+@trocarlíder1 <party_member_name>
+
+Modifica o Líder do grupo.
+Apenas o líder pode utilizar este comando.
+
+====================
+
+@chamargrupo <party name>
+
+Trás para você todos os jogadores online do grupo.
+
+====================
+
+@espiargrupo <nome_grupo>
+
+Permite que você espie o chat do grupo.
+ATENÇÃO: map server precisa estar configurado para permitir espionamento (enable_spy: yes)
+
+====================
+
+=====================
+| 7. Guild Commands |
+=====================
+
+@clã <nome do clã>
+
+Cria um clã novo, o jogador que utilizar este comando será o Líder.
+
+====================
+
+@trocarlíder2 <guild_member_name>
+
+Modifica o Líder do Clã.
+Apenas o Líder do clã pode utilziar este comando.
+
+====================
+
+@armazénclã
+
+Abre o Armazén do Clã.
+
+====================
+
+@clvl <+/- quantidade>
+
+Modifica level do clã para a quantidade específicada.
+
+====================
+
+@fantasiarclã <monstro/NPC/ID> <Nome do Clã/ID>
+@desfantasiarclã
+
+Fantasia ou desfantasia todos os personagems onlines do Clã específicado.
+
+====================
+
+@tamanhoclã <tamanho> <Nome do Clã>
+
+Modifica o Tamanho de todos os Personagems onlines do clã específicado.
+
+====================
+
+@guildrecall <guild name>
+
+Invoca todos os personagems onlines do Clã específicado.
+
+====================
+
+@guildspy <guild name>
+
+Permite que você espie o chat do Clã.
+ATENÇÃO: map server precisa estar configurado para permitir espionamento (enable_spy: yes)
+
+
+====================
+
+======================
+| 8. Comandos de Pet |
+======================
+
+@ovo <ID do OVO>
+
+Cria um ovo de Pet baseado na ID dada.
+
+====================
+
+@chocar
+
+Abre a tela da incubadora para chocar um ovo.
+
+====================
+
+@mascotefalar <menssagem>
+
+Este comando permite que o Mascote fale.
+
+====================
+
+@renomearmascote
+
+Se você não tiver renomeado seu mascote, você pode fazer isto na Tela do Mascote.
+Se você já tiver renomeado, este comando irá permitir que você use a opção de renomação de mascote novamente.
+the rename option on the window again.
+
+====================
+
+@mlealdade <0-1000>
+
+Modifica o valor de intimidade entre o lider e o mascote
+
+====================
+
+@alimentarm <0-100>
+
+Modifica a fome do mascote.
+
+====================
+
+============================
+| 9. Comandos de Homunculo |
+============================
+
+@criarhomun <homunculu ID>
+
+Cria o Homunculo específicado pela ID.
+
+====================
+
+@evoluirhomun
+
+Evolui seu homunculo, se possível.
+
+====================
+
+@homuninfo
+@atributoshomun
+
+Mostra status dos homunculos.
+
+====================
+
+@recalcularhomun
+
+Este comando irá recalcular atributos do homunculo se ele for posto para Level 1 novamente.
+
+====================
+
+@homunfalar <menssagem>
+
+Irá fazer com que o Homunculo fale a frase.
+
+====================
+
+@hlvl <+/- quantidade>
+
+Evolui o Homunculo pela quantidade específicada.
+
+====================
+
+@hlealdade <0-1000>
+
+Modifica a intimidade entre mestre e homunculo.
+
+====================
+
+@alimentarh <0-100>
+
+Alimenta o Homunculo.
+
+====================
